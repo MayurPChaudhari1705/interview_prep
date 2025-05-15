@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useId, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { vapi } from '@/lib/vapi.sdk'
 
 enum CallStatus {
@@ -57,7 +57,7 @@ const Agent = ({userName , userId , type } : AgentProps) => {
     if(callStatus === CallStatus.FINISHED){
       router.push('/');
     }
-  }, [messages , callStatus , type , useId])
+  }, [messages , callStatus , type , userId])
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
